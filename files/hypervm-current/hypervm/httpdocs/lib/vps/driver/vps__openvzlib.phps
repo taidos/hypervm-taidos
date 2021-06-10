@@ -1,52 +1,3 @@
-Skip to content
-Search or jump to…
-
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@taidos 
-taidos
-/
-hypervm-taidos
-Private
-1
-00
-Code
-Issues
-Pull requests
-Actions
-Projects
-Security
-Insights
-Settings
-hypervm-taidos
-/
-files
-/
-hypervm-current
-/
-hypervm
-/
-httpdocs
-/
-lib
-/
-vps
-/
-driver
-/
-vps__openvzlib.phps
-in
-main
- 
-
-Tabs
-
-8
-
-No wrap
 <?php 
 
 class vps__openvz extends Lxdriverclass {
@@ -1865,4 +1816,3 @@ public static function staticChangeConf($file, $var, $val)
         }     
         
 }
-
