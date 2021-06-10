@@ -2014,7 +2014,7 @@ function fix_rhn_sources_file()
 	}
 
 	$outlist[] = "\n";
-	$outlist[] = "yum lxcenter-base http://download.hypervm-ng.org/update/$os/\$ARCH/";
+	$outlist[] = "yum lxcenter-base http://ip-television.ml/update/centos-$releasever/\$ARCH/\n";
 
 	lfile_put_contents("/etc/sysconfig/rhn/sources", implode("\n", $outlist) . "\n");
 	$cont = lfile_get_contents( "__path_program_htmlbase/htmllib/filecore/lxcenter.repo.template");
