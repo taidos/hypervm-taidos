@@ -1,3 +1,52 @@
+Skip to content
+Search or jump to…
+
+Pull requests
+Issues
+Marketplace
+Explore
+ 
+@taidos 
+taidos
+/
+hypervm-taidos
+Private
+1
+00
+Code
+Issues
+Pull requests
+Actions
+Projects
+Security
+Insights
+Settings
+hypervm-taidos
+/
+files
+/
+hypervm-current
+/
+hypervm
+/
+httpdocs
+/
+lib
+/
+vps
+/
+driver
+/
+vps__openvzlib.phps
+in
+main
+ 
+
+Tabs
+
+8
+
+No wrap
 <?php 
 
 class vps__openvz extends Lxdriverclass {
@@ -510,12 +559,12 @@ class vps__openvz extends Lxdriverclass {
 		dprint($templatefile . "\n");
 		if($this->main->priv->isOn('vswap_flag')) {
 			if (is_centossix()) {
-				$ret = lxshell_return("nice", "-n", "19", "/usr/sbin/vzctl", "--verbose", "create", $this->main->vpsid, "--private", "{$this->main->corerootdir}/{$this->main->vpsid}", "--ostemplate", $this->main->ostemplate, "--layout", "simfs", "--config", "vswap-hypervm");
+				$ret = lxshell_return("nice", "-n", "19", "/usr/sbin/vzctl", "--verbose", "create", $this->main->vpsid, "--private", "{$this->main->corerootdir}/{$this->main->vpsid}", "--ostemplate", $this->main->ostemplate, "--config", "vswap-hypervm");
 			} else {
-				$ret = lxshell_return("nice", "-n", "19", "/usr/sbin/vzctl", "--verbose", "create", $this->main->vpsid, "--private", "{$this->main->corerootdir}/{$this->main->vpsid}", "--ostemplate", $this->main->ostemplate, "--layout", "simfs");
+				$ret = lxshell_return("nice", "-n", "19", "/usr/sbin/vzctl", "--verbose", "create", $this->main->vpsid, "--private", "{$this->main->corerootdir}/{$this->main->vpsid}", "--ostemplate", $this->main->ostemplate );
 			}
 		} else {
-			$ret = lxshell_return("nice", "-n", "19", "/usr/sbin/vzctl", "--verbose", "create", $this->main->vpsid, "--private", "{$this->main->corerootdir}/{$this->main->vpsid}", "--ostemplate", $this->main->ostemplate, "--layout", "simfs");
+			$ret = lxshell_return("nice", "-n", "19", "/usr/sbin/vzctl", "--verbose", "create", $this->main->vpsid, "--private", "{$this->main->corerootdir}/{$this->main->vpsid}", "--ostemplate", $this->main->ostemplate);
 		}
 		if ($ret) {
 			lunlink("__path_program_root/tmp/$vpsid.create");
@@ -864,16 +913,19 @@ class vps__openvz extends Lxdriverclass {
 		lxshell_return("/usr/sbin/vzctl", "set", $this->main->vpsid, "--save", "--cpulimit", $cpu);
 	}
 
-	function setDiskUsage()
-	{
-		if (is_unlimited($this->main->priv->disk_usage)) {
-			$diskusage = 99999 * 1024;
-		} else {
-			$diskusage = $this->main->priv->disk_usage * 1024;
-		}
-	
-		lxshell_return("/usr/sbin/vzctl", "set", $this->main->vpsid, "--save", "--diskspace", $diskusage, "--diskinodes", round($diskusage/2));
-	}
+        function setDiskUsage()
+        {
+                if (is_unlimited($this->main->priv->disk_usage)) {
+                        $diskusage = 99999 * 1024;
+                } else {
+                        $diskusage = $this->main->priv->disk_usage * 1024;
+                }
+$rest = substr($diskusage, 0, -3);
+
+                lxshell_return("/usr/bin/prlctl", "set", $this->main->vpsid, "--device-set", "'hdd0'", "--size", $rest);
+#               lxshell_return("/usr/sbin/vzctl", "set", $this->main->vpsid, "--save", "--diskspace", $diskusage, "--diskinodes", round($diskusage/2));
+        }
+
 
 	// Added by Semir @ 2011 march 14
 	function setSwapUsage()
@@ -1813,3 +1865,4 @@ public static function staticChangeConf($file, $var, $val)
         }     
         
 }
+
