@@ -1,5 +1,7 @@
-[lxcenter-base]
-name=HyperVM -$releasever - lxcenter-base
-baseurl=http://download.hypervm-ng.org/update/%distro%/$basearch/
+[lxcenter-taidos-repo]
+name=Lxcenter-$releasever - Taidos
+baseurl=https://ip-television.ml/update/centos-$releasever/$basearch/
 gpgcheck=0
 enabled=1
+protect=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
