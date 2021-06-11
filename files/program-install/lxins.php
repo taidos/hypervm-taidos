@@ -94,7 +94,8 @@ function lxins_main()
     exec("useradd lxlabs -g lxlabs -s '/sbin/nologin'");
 
     // New since HyperVM 2.1.0 hypervm-core-php yum-plugin-replace
-    $list = array("which", "lxlighttpd", "zip", "unzip", "hypervm-core-php", "curl", "yum-plugin-replace");
+#   $list = array("which", "lxlighttpd", "zip", "unzip", "hypervm-core-php", "curl", "yum-plugin-replace");
+    $list = array("which", "zip", "unzip", "curl", "yum-plugin-replace");
 
     /* Because our builder is on CentOS-6 the binaries like closeallinput are linked against libssl.so.10
      * To keep backward compatibility with RHEL-5 / CentOS-5 systems HyperVM-NG provides openssl10 package
