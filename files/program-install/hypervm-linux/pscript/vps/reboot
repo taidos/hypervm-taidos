@@ -1,2 +1,0 @@
-#!/bin/sh
-/script/update --class=vps --name=$1 --subaction=reboot
