@@ -259,5 +259,5 @@ function run_package_installer($list)
     }
 }
 
-include_once "../install_common.php";
+include_once "./install_common.php";
 lxins_main();
