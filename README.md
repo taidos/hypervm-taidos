@@ -8,6 +8,7 @@ ROADMAP:
 - HyperVM-NG Repo (error in installation due to be down) Solved
 - SimFS settings related to old OpenVZ versions Solved
 - Ploop Settings to disk usage shorted out.
+- Make is workable ( creating vps, deleting vps, set the vps diskspace)
 
 TODO:
 - Solve Burstable settings
