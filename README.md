@@ -16,5 +16,6 @@ TODO:
 - Downloading templates ( will add some on installation, for now use: https://download.openvz.org/template/precreated/ )
 - Network testing (with what i have i just know local network, i know it work "node<->quest" but to outside i dont)
 
+Every update i made on this repository will refrect the new installations (older ones dont) to be more fast on repair/update all the installation will use git to get all the needed files and then move, instead of getting the zip files, this way i believe is better. and i hope all the help you may give to put once again working as we expect!
 
 For now it works the vps creation, remember this is for OpenVZ 7 OS with the EZ templates installed and images on the cache, im developing this on one stable and working enviroment, if you have CentOS 7 install and you want to use HyperVM i made the script for it, but the recomendation is 10GB on / partition or more and the rest as LVM in ext4 mounted on /vz
