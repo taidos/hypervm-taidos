@@ -1,1 +1,0 @@
- The port %port% is  %newstate% on %server%.  Was %oldstate% for %gap% Minutes
