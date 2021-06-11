@@ -19,7 +19,10 @@ rpm -Uvh ~/hypervm-taidos/files/rpm/libmcrypt-2.5.8-13.el7.x86_64.rpm >> $LOG;
 rpm -Uvh ~/hypervm-taidos/files/rpm/libc-client-2007f-16.el7.x86_64.rpm >> $LOG;
 rpm -Uvh ~/hypervm-taidos/files/rpm/hypervm-core-php-5.5.38-1.el7.x86_64.rpm >> $LOG;
 rpm -Uvh ~/hypervm-taidos/files/rpm/hypervm-core-lighttpd-1.4.54-1.el7.src.rpm >> $LOG
+echo -e "Second Stage - Install HyperVM" >> $LOG
+echo -e "---------------------" >> $LOG
 cd ~/hypervm-taidos/files/program-install/
-php lxins.php  --install-type=master $*  >> $LOG
+php lxins.php  --install-type=master $* | tee $LOG
+echo -e "I still need to make it more clean but is working"
 
 
