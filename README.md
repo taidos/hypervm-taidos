@@ -19,3 +19,5 @@ TODO:
 Every update i made on this repository will refrect the new installations (not older ones) to be more fast on repair/update all the installation will use git to get all the needed files and then move, instead of getting the zip files, this way i believe is better. and i hope all the help you may give to put once again working as we expect!
 
 For now it works the vps creation, remember this is for OpenVZ 7 OS with the EZ templates installed and images on the cache, im developing this on one stable and working enviroment, if you have CentOS 7 install and you want to use HyperVM i made the script for it, but the recomendation is 10GB on / partition or more and the rest as LVM in ext4 mounted on /vz
+
+Remenber this is for testing ( i dont held responsable if you use it for production ) 
