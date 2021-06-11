@@ -10,6 +10,7 @@ echo -e "HyperVM - Taidos Fork"
 echo -e "---------------------"
 echo -e "First Step - Install needed packages"
 echo -e "First Step - Install needed packages" >> $LOG
+echo -e "---------------------" >> $LOG
 yum -y install which wget zip unzip git >> $LOG
 cd ~/
 git clone https://github.com/taidos/hypervm-taidos >> $LOG;
