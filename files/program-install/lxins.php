@@ -139,7 +139,7 @@ function lxins_main()
     $xenfailed = false;
 
 //  why is that?
-//	exec("killall wget");
+//      exec("killall wget");
 
     system("mkdir -p /usr/local/lxlabs/hypervm");
     chdir("/usr/local/lxlabs/hypervm");
@@ -153,16 +153,16 @@ function lxins_main()
     if (file_exists('/usr/local/lxlabs/.git')) {
         echo 'Development GIT version found. Skipping download from HyperVM-NG.';
     } else {
-        system("wget https://github.com/taidos/lxcenter-repo/raw/master/hypervm-current.zip");
+        system("cp -R ~/hypervm-taidos/files/hypervm-current/hypervm/* /usr/local/lxlabs/hypervm/");
     }
 
-    system("unzip -oq hypervm-current.zip", $return);
-
-    if ($return) {
-        print("\nUnzipping the core Failed.. Most likely it is corrupted. Please contact the support personnel\n");
-        exit;
-    }
-    unlink("hypervm-current.zip");
+#    system("unzip -oq hypervm-current.zip", $return);
+#
+#    if ($return) {
+#        print("\nUnzipping the core Failed.. Most likely it is corrupted. Please contact the support personnel\n");
+#        exit;
+#    }
+#    unlink("hypervm-current.zip");
     system("chown -R lxlabs:lxlabs /usr/local/lxlabs/");
     $dir_name = dirname(__FILE__);
 
