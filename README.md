@@ -24,7 +24,7 @@ For now it works the vps creation, remember this is for OpenVZ 7 OS with the EZ 
 
 Remember this is for testing ( I will not be responsible for use or damage. ) 
 
-For production right now i recomend two projects: https://www.proxmox.com/en/ @ https://www.aventurin.net
+For production right now i recomend two projects: https://www.proxmox.com/en/ 
 
 Those are with ISO image, not just the Panel ONLY ( thats oneonther reason i am doing this ) its near impossible to find one free panel solution this days.
 
