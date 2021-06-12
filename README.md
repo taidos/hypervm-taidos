@@ -28,4 +28,4 @@ For production right now i recomend two projects: https://www.proxmox.com/en/
 
 Those are with ISO image, not just the Panel ONLY ( thats oneonther reason i am doing this ) its near impossible to find one free panel solution this days.
 
-To contact me email me at xester@gmx.com
+To contact me email me at xester@gmx.com or find me on discord: https://discord.gg/Y2ERCMHa8J
