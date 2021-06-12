@@ -3,7 +3,7 @@ echo "Credit goes to SolusVM team too";
 echo "Please wait to make the changes please";
 echo "Dont reboot until is finished";
 echo "You need to make SURE that you have one LVM formated in EXT4 for /vz partition";
-echo "After 10 Seconds will start install, press CRTL + X to EXIT if you want";
+echo "After 10 Seconds will start install, press CRTL + C to EXIT if you want";
 echo "--------------------------------------";
 sleep 10;
 yum remove python2-subprocess32
