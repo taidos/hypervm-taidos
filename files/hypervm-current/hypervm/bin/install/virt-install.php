@@ -65,7 +65,7 @@ function openvz_install($installtype)
 function installOstemplates($virtualization)
 {
 	system("mkdir -p /home/hypervm/xen/template/ ; cd /home/hypervm/xen/template/ ; wget -nd -np -c -r http://download.hypervm-ng.org/download/xentemplates/base/;");
-	system("mkdir -p /vz/template/cache ; cd /vz/template/cache/ ; wget -nd -np -c -r  https://download.openvz.org/template/precreated/; ewget -nd -np -c -r  http://www.carlos-faustino.com/hypervm/;");
+	system("mkdir -p /vz/template/cache ; cd /vz/template/cache/ ; wget -nd -np -c -r  https://download.openvz.org/template/precreated/centos-7-x86_64.tar.gz; wget -nd -np -c -r  https://download.openvz.org/template/precreated/;");
 }
 
 function xen_install($installtype)
