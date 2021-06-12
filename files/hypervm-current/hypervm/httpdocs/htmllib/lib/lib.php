@@ -3853,6 +3853,18 @@ function print_and_exit($rem)
 	exit;
 }
 
+function is_centosseven()
+{
+	$find = find_os_pointversion();
+	$check = strpos($find, 'centos-7');
+
+	if ($check !== false) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
 
 function getOsForServer($servername)
 {
