@@ -43,7 +43,7 @@ function openvz_install($installtype)
 	$arch = trim($arch);
 
 	if ($arch === 'x86_64') {
-		$list = array("vzctl.x86_64", "vzquota.x86_64", "ovzkernel.x86_64", "kernel.x86_64");
+		$list = array("vzctl.x86_64", "vzquota.x86_64", "vzkernel.x86_64", "kernel.x86_64");
 	} else {
 		$list = array("vzctl", "vzquota", "ovzkernel-PAE");
 	}
@@ -76,7 +76,7 @@ function xen_install($installtype)
         unlink("/etc/yum.repos.d/openvz.repo");
     }
 
-    if (is_centossix()) {
+	if (is_centossix() || is_centosseven()) {
         $arch = `arch`;
         $arch = trim($arch);
 
@@ -85,11 +85,11 @@ function xen_install($installtype)
             run_package_installer($list);
 
         } else {
-            echo "Sorry, installation aborted. Xen is not supported at CentOS 6 32bit.";
+		echo "Sorry, installation aborted. Xen is not supported at CentOS 6 or Centos 7 32bit.";
             exit;
         }
     }
-	if (is_centosfive()) {
+	if (is_centosfive() || is_centosseven()) {
 		$list = array("kernel-xen", "xen", "virt-manager");
 	} else {
 		$list = array("kernel-xen", "xen", "virt-manager", "lxmkinitrd", "lxkernel-domU-xen");
@@ -102,7 +102,7 @@ function xen_install($installtype)
         system("chkconfig libvirtd off");
     }
 
-    if (is_centosfive() || is_centossix()) {
+    	if (is_centosfive() || is_centossix() || is_centosseven()) {
 
         if (file_exists("/etc/init.d/xendomains")) {
             system("chkconfig xendomains on");
