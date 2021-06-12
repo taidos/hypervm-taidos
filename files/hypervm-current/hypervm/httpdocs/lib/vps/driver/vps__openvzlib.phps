@@ -1077,7 +1077,9 @@ public static function staticChangeConf($file, $var, $val)
 			lxfile_rm_rec($dir);
 		}
 		lxfile_mkdir("{$this->main->corerootdir}/{$this->main->vpsid}");
-		$ret = lxshell_return("tar", "-C", "{$this->main->corerootdir}/{$this->main->vpsid}", '--numeric-owner', "-xzpf", $templatefile);
+#		$ret = lxshell_return("tar", "-C", "{$this->main->corerootdir}/{$this->main->vpsid}", '--numeric-owner', "-xzpf", $templatefile);
+                $ret = lxshell_return("tar", "-C", "{$this->main->coreploopdir}/{$this->main->vpsid}", '--numeric-owner', "-xzpf", $templatefile);
+#still need to work on
 		if ($ret) {
 			throw new lxException("rebuild_failed_could_not_untar");
 		}
@@ -1402,6 +1404,11 @@ public static function staticChangeConf($file, $var, $val)
 			$this->main->checkVPSLock($virtual_machine_name);
 		}
 	
+                if (!$this->main->coreploopdir) {
+                $this->main->coreploopdir = '/vz/root';
+                }
+
+		
 		if (!$this->main->corerootdir) {
 			$this->main->corerootdir = '/vz/private';
 		}
