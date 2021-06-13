@@ -1,7 +1,7 @@
 # hypervm-taidos
 My HyperVM Fork
 
-HyperVM for new OpenVZ 7/Virtuozzo 7 Install, still need many improvements!
+HyperVM for new OpenVZ 7/Virtuozzo 7 Install, still need many improvements! But for now this is one alpha but stable, endid all modifications will be uploaded to the dev branch now and will be on the main branch after several test's and check's.
 
 DONE:
 
