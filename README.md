@@ -1,7 +1,7 @@
 # hypervm-taidos
 My HyperVM Fork
 
-I will be more arround the HyperVM installation, until its a working panel, any help will be great :)
+HyperVM for new OpenVZ 7/Virtuozzo 7 Install, still need many improvements!
 
 DONE:
 
