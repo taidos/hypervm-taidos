@@ -10,10 +10,10 @@ DONE:
 - Ploop Settings to disk usage shorted out.
 - Make is workable ( creating vps, deleting vps, set the vps diskspace)
 - Patched the usage of the Disk Inodes&Usage to display on HyperVM
+- Rebuild improved (/etc/ssh/* on quests makes wrong permissions, for it we need to: chmod go-r /etc/ssh/* )
 
 TODO:
 - Solve Burstable settings
-- Rebuild VPS improvements ( still dont work, it brokes the VPS when you do it) for now only erase and create a new one!
 - Downloading templates ( will add some on installation, for now use: https://download.openvz.org/template/precreated/
 - Network (with what i have i just know local network, i know it work "node<->quest" but to outside i dont, and i believe is not cout the traffic is made.
 - Create VNC option and others for VPS
