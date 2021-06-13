@@ -3,12 +3,13 @@ My HyperVM Fork
 
 I will be more arround the HyperVM installation, until its a working panel, any help will be great :)
 
-ROADMAP:
+DONE:
 
 - HyperVM-NG Repo (error in installation due to be down) Solved
 - SimFS settings related to old OpenVZ versions Solved
 - Ploop Settings to disk usage shorted out.
 - Make is workable ( creating vps, deleting vps, set the vps diskspace)
+- Patched the usage of the Disk Inodes&Usage to display on HyperVM
 
 TODO:
 - Solve Burstable settings
