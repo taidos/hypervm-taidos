@@ -14,7 +14,7 @@ DONE:
 TODO:
 - Solve Burstable settings
 - Rebuild VPS improvements ( still dont work, it brokes the VPS when you do it) for now only erase and create a new one!
-- Downloading templates ( will add some on installation, for now use: https://download.openvz.org/template/precreated/ )
+- Downloading templates ( will add some on installation, for now use: https://download.openvz.org/template/precreated/
 - Network testing (with what i have i just know local network, i know it work "node<->quest" but to outside i dont)
 - Create VNC option and others for VPS
 
