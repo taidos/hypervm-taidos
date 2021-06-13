@@ -871,7 +871,7 @@ class vps__openvz extends Lxdriverclass {
                 } else {
                         $diskusage = $this->main->priv->disk_usage * 1024;
                 }
-$rest = substr($diskusage, 0, -3);
+                $rest = substr($diskusage, 0, -3);
 
                 lxshell_return("/usr/bin/prlctl", "set", $this->main->vpsid, "--device-set", "'hdd0'", "--size", $rest);
 #               lxshell_return("/usr/sbin/vzctl", "set", $this->main->vpsid, "--save", "--diskspace", $diskusage, "--diskinodes", round($diskusage/2));
@@ -1070,16 +1070,29 @@ public static function staticChangeConf($file, $var, $val)
 			lxfile_mkdir("/home/hypervm/vps/{$this->main->nname}/__backup/");
 			$date = date('Y-m-d-') . time();
 			$dir = "/home/hypervm/vps/{$this->main->nname}/__backup/rebuild-backup.$date";
-			lxfile_mv_rec("{$this->main->corerootdir}/{$this->main->vpsid}", $dir);
+			lxfile_mv_rec("{$this->main->coreploopdir}/{$this->main->vpsid}", $dir);
 		} else {
-			$dir = getNotexistingFile($this->main->corerootdir, "tmp.{$this->main->vpsid}");
-			lxfile_mv_rec("{$this->main->corerootdir}/{$this->main->vpsid}", $dir);
+			$dir = getNotexistingFile($this->main->coreploopdir, "tmp.{$this->main->vpsid}");
+			lxfile_mv_rec("{$this->main->coreploopdir}/{$this->main->vpsid}", $dir);
 			lxfile_rm_rec($dir);
 		}
-		lxfile_mkdir("{$this->main->corerootdir}/{$this->main->vpsid}");
+#		lxfile_mkdir("{$this->main->corerootdir}/{$this->main->vpsid}");
+#new code for ploop
+               lxfile_mkdir("{$this->main->coreploopdir}/{$this->main->vpsid}");
+               lxfile_mkdir("/home/{$this->main->vpsid}");
+			   lxshell_return("rm", "-rf", "{$this->main->coreploopdir}/{$this->main->vpsid}/*");
+			   lxshell_return("mount", "-t", "ploop", "{$this->main->corerootdir}/{$this->main->vpsid}/root.hdd/DiskDescriptor.xml", "/home/{$this->main->vpsid}"); 
+ 			   lxshell_return("rm", "-rf", "/home/{$this->main->vpsid}/*");
+#end of the first part
+#              lxfile_mv("{$this->main->corerootdir}/{$this->main->vpsid}", "{$this->main->corerootdir}/{$this->main->vpsid}.back");
 #		$ret = lxshell_return("tar", "-C", "{$this->main->corerootdir}/{$this->main->vpsid}", '--numeric-owner', "-xzpf", $templatefile);
-                $ret = lxshell_return("tar", "-C", "{$this->main->coreploopdir}/{$this->main->vpsid}", '--numeric-owner', "-xzpf", $templatefile);
-#still need to work on
+#               $ret = lxshell_return("tar", "-C", "{$this->main->coreploopdir}/{$this->main->vpsid}", '--numeric-owner', "-xzpf", $templatefile);
+#start the second stage
+				$ret = lxshell_return("tar", "-C", "/home/{$this->main->vpsid}", '--numeric-owner', "-xzpf", $templatefile);
+				lxshell_return("umount", "/home/{$this->main->vpsid}");
+				lxshell_return("rm", "-rf", "/home/{$this->main->vpsid}");
+#end of the rebuild
+#		lxfile_mv("{$this->main->corerootdir}/{$this->main->vpsid}.back", "{$this->main->corerootdir}/{$this->main->vpsid}");
 		if ($ret) {
 			throw new lxException("rebuild_failed_could_not_untar");
 		}
@@ -1404,14 +1417,13 @@ public static function staticChangeConf($file, $var, $val)
 			$this->main->checkVPSLock($virtual_machine_name);
 		}
 	
-                if (!$this->main->coreploopdir) {
-                $this->main->coreploopdir = '/vz/root';
-                }
-
-		
 		if (!$this->main->corerootdir) {
 			$this->main->corerootdir = '/vz/private';
 		}
+                if (!$this->main->coreploopdir) {
+                        $this->main->coreploopdir = '/vz/root';
+                }
+
 	}
 
 	function dosyncToSystemPost()
