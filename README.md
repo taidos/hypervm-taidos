@@ -13,7 +13,7 @@ DONE:
 - Rebuild improved (/etc/ssh/* on quests makes wrong permissions, for it we need to: chmod go-r /etc/ssh/* )
 
 TODO:
-- Solve Burstable settings
+- Solve Burstable RAM settings (dont get saved)
 - Downloading templates ( will add some on installation, for now use: https://download.openvz.org/template/precreated/
 - Network (with what i have i just know local network, i know it work "node<->quest" but to outside i dont, and i believe is not cout the traffic is made.
 - Create VNC option and others for VPS
