@@ -730,14 +730,14 @@ class vps__openvz extends Lxdriverclass {
 			$this->stop();
 		}
 	
-		$list = lscandir_without_dot("{$this->main->corerootdir}/{$this->main->vpsid}");
+		$list = lscandir_without_dot("{$this->main->coreploopdir}/{$this->main->vpsid}");
 		$list = array_remove($list, "{$this->main->vpsid}.conf");
 		$list = array_remove($list, "proc");
 	
 		if (count($list) < 6) {
 			throw new lxException("not_enough_directories_in_vps_root,_possibly_wrong_location", '', '');
 		}
-		return array("{$this->main->corerootdir}/{$this->main->vpsid}", $list);
+		return array("{$this->main->coreploopdir}/{$this->main->vpsid}", $list);
 	}
 
 	function do_backup_cleanup($list)
@@ -1084,7 +1084,7 @@ public static function staticChangeConf($file, $var, $val)
 			   lxshell_return("mount", "-t", "ploop", "{$this->main->corerootdir}/{$this->main->vpsid}/root.hdd/DiskDescriptor.xml", "/home/{$this->main->vpsid}"); 
  			   lxshell_return("rm", "-rf", "/home/{$this->main->vpsid}/*");
 #end of the first part
-#              lxfile_mv("{$this->main->corerootdir}/{$this->main->vpsid}", "{$this->main->corerootdir}/{$this->main->vpsid}.back");
+#               lxfile_mv("{$this->main->corerootdir}/{$this->main->vpsid}", "{$this->main->corerootdir}/{$this->main->vpsid}.back");
 #		$ret = lxshell_return("tar", "-C", "{$this->main->corerootdir}/{$this->main->vpsid}", '--numeric-owner', "-xzpf", $templatefile);
 #               $ret = lxshell_return("tar", "-C", "{$this->main->coreploopdir}/{$this->main->vpsid}", '--numeric-owner', "-xzpf", $templatefile);
 #start the second stage
@@ -1182,8 +1182,8 @@ public static function staticChangeConf($file, $var, $val)
 	
 		$this->stop();
 	
-		$list = lscandir_without_dot("{$this->main->corerootdir}/{$this->main->vpsid}");
-		lxshell_return("tar", "-C", "{$this->main->corerootdir}/{$this->main->vpsid}/", '--numeric-owner', "-czf", "/vz/template/cache/$templatename.tar.gz", $list);
+		$list = lscandir_without_dot("{$this->main->coreploopdir}/{$this->main->vpsid}");
+		lxshell_return("tar", "-C", "{$this->main->coreploopdir}/{$this->main->vpsid}/", '--numeric-owner', "-czf", "/vz/template/cache/$templatename.tar.gz", $list);
 		$this->start();
 		$filepass = cp_fileserv("/vz/template/cache/$templatename.tar.gz");
 		$ret = array("__syncv___ostemplate_filepass" => $filepass, "__syncv___ostemplate_filename" => "$templatename.tar.gz");
@@ -1443,7 +1443,7 @@ public static function staticChangeConf($file, $var, $val)
 		}
 		$this->stop();
 		lxfile_mkdir("{$this->main->corerootdir}/{$this->main->vpsid}/dev/");
-		lxshell_return("tar", "-C", "{$this->main->corerootdir}/{$this->main->vpsid}/dev/", "-xzf", "__path_program_root/file/vps-dev.tgz");
+		lxshell_return("tar", "-C", "{$this->main->coreploopdir}/{$this->main->vpsid}/dev/", "-xzf", "__path_program_root/file/vps-dev.tgz");
 		lxfile_mv("{$this->main->corerootdir}/sbin/udevd", "{$this->main->corerootdir}/sbin/udevd.back");
 		$this->start();
 		sleep(10);
