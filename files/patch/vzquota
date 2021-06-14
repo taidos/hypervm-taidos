@@ -6,3 +6,4 @@ echo "inodes $(df -i | grep "/vz/root/$VID" | awk 'NR == 1{print $3+0}') $(df -i
 #V0.1
 #echo "1k-blocks $(vzctl exec $VID df | awk 'NR == 2{print $3+0}') $(vzctl exec $VID df | awk 'NR == 2{print $2+0}') $(vzctl exec $VID df | awk 'NR == 2{print $2+0}')"
 #echo "inodes $(vzctl exec $VID df -i | awk 'NR == 2{print $3+0}') $(vzctl exec $VID df -i | awk 'NR == 2{print $2+0}') $(vzctl exec $VID df -i | awk 'NR == 2{print $2+0}')"
+#Temporary patch
