@@ -1,0 +1,19 @@
+this is one normal iptables output:
+
+Chain FORWARD (policy ACCEPT 7765 packets, 7595984 bytes)
+    pkts      bytes target     prot opt in     out     source               destination
+    2607   144468            all  --  *      *       192.168.1.111        0.0.0.0/0     <-- upload
+    5158  7451516            all  --  *      *       0.0.0.0/0            192.168.1.111 <-- download
+       0        0            all  --  *      *       192.168.1.123        0.0.0.0/0
+       0        0            all  --  *      *       0.0.0.0/0            192.168.1.123
+       
+# for some reason gets flushed, better collect traffic in /proc/dev/net like this:
+
+X=`/usr/sbin/vzctl exec $1 "grep venet0 /proc/net/dev"`
+echo $X | cut -f2 -d: | awk '{printf"IN=%s\nOUT=%s\n", $1, $9}' <-- bytes in e out
+
+ /usr/sbin/vzctl exec $VID cat /proc/net/dev
+Inter-|   Receive                                                |  Transmit
+ face |bytes    packets errs drop fifo frame compressed multicast|bytes    packets errs drop fifo colls carrier compressed
+    lo:       0       0    0    0    0     0          0         0        0       0    0    0    0     0       0          0
+venet0: 72421516   47626    0    0    0     0          0         0  1658408   27567    0    0    0     0       0          0
