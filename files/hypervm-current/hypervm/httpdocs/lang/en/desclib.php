@@ -1,4 +1,7 @@
 <?php 
+//added by taidos
+$__description["ssh_terminal"] = array("SSH Terminal");
+//end adding
 $__description["owner"] = array("Owner");
 $__description["command_center"] = array("Command Center");
 $__description["Command"] = array("Command");
