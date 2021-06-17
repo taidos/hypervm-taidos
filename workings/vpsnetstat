@@ -1,0 +1,2 @@
+X=`/usr/sbin/vzctl exec $1 "grep venet0 /proc/net/dev"`
+echo $X | cut -f2 -d: | awk '{printf"IN=%s\nOUT=%s\n", $1, $9}'
