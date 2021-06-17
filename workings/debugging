@@ -1,5 +1,6 @@
 this is one normal iptables output:
 
+#iptables -nxv -L FORWARD
 Chain FORWARD (policy ACCEPT 7765 packets, 7595984 bytes)
     pkts      bytes target     prot opt in     out     source               destination
     2607   144468            all  --  *      *       192.168.1.111        0.0.0.0/0     <-- upload
