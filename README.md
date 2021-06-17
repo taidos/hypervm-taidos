@@ -15,7 +15,7 @@ DONE:
 TODO:
 - Solve Burstable RAM settings (dont get saved)
 - Downloading templates ( will add some on installation, for now use: https://download.openvz.org/template/precreated/
-- Network (with what i have i just know local network, i know it work "node<->quest" but to outside i dont, and i believe is not cout the traffic is made.
+- Network Count (Need to fix bug that flushes iptables once record is done, network only work like old ways and tc rules)
 - Create VNC option and others for VPS
 
 Every update i made on this repository will refrect the new installations (not older ones) to be more fast on repair/update all the installation will use git to get all the needed files and then move, instead of getting the zip files, this way i believe is better. and i hope all the help you may give to put once again working as we expect!
