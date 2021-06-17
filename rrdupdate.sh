@@ -3,9 +3,7 @@
 # Author:       "Brian Harrington, Alticon Inc" <bharrington@alticon.net>
 # Website:      htty://www.alticon.net
 # Editor:       "Denis Titov, ISP Okeanika" <denis@okeanika.net.ua>
-#TOT="1000"
-#TOT="sum=$(( $CTIN + $CTOUT ))"
-#echo $TOT;
+# Edited:       "Carlos Faustino <taidos@sapo.pt>
 # Time to do the data collection.
 for veid in $(/usr/sbin/vzlist -o veid -H)
 do
@@ -22,7 +20,6 @@ do
                         RRA:AVERAGE:0.5:1:600 \
                         RRA:AVERAGE:0.5:6:700 \
                         RRA:AVERAGE:0.5:24:775 \
-#                       N:$CTIN:$CTOUT \
                         RRA:AVERAGE:0.5:288:797
         fi
         # Parse out the inbound/outbound traffic and assign them to the corresponding variables
