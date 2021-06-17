@@ -4,7 +4,8 @@
 # Website:      htty://www.alticon.net
 # Editor:       "Denis Titov, ISP Okeanika" <denis@okeanika.net.ua>
 #TOT="1000"
-# Candidate to work as traffic monitor for the graph's
+#TOT="sum=$(( $CTIN + $CTOUT ))"
+#echo $TOT;
 # Time to do the data collection.
 for veid in $(/usr/sbin/vzlist -o veid -H)
 do
@@ -29,5 +30,6 @@ do
                 awk -F: '{print $2}' | awk '{printf"CTIN=%s\nCTOUT=%s\n", $1, $9}'`
 
         # Send the data to the corresponding RRD time with (N)now as the update time
-        /usr/bin/rrdtool update $RRDFILE N:$CTIN:$CTOUT:$TOT
+        /usr/bin/rrdtool update $RRDFILE N:$(( $CTIN + $CTOUT )):$CTIN:$CTOUT
 done
+
