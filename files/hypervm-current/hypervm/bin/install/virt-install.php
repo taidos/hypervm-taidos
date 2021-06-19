@@ -43,7 +43,8 @@ function openvz_install($installtype)
 	$arch = trim($arch);
 
 	if ($arch === 'x86_64') {
-		$list = array("vzctl.x86_64", "vzquota.x86_64", "vzkernel.x86_64", "kernel.x86_64");
+		$list = array("vzctl.x86_64", "vzkernel.x86_64", "kernel.x86_64");
+		//$list = array("vzctl.x86_64", "vzquota.x86_64", "vzkernel.x86_64", "kernel.x86_64");
 	} else {
 		$list = array("vzctl", "vzquota", "ovzkernel-PAE");
 	}
