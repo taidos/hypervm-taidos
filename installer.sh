@@ -3,7 +3,7 @@ LOG="/root/hypervm-install.log"
 
 if ! [ -f /usr/bin/yum ] ; then
           echo "You at least need yum installed for this to work..."
-          echo "Please contact our support personnel Or visit the website at http://github.com/taidos"
+          echo "Please support me and go to my website at http://github.com/taidos"
           exit
 fi
 echo -e "HyperVM - Taidos Fork"
