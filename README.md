@@ -10,7 +10,7 @@ DONE:
 - Ploop Settings to disk usage shorted out.
 - Make is workable ( creating vps, deleting vps, set the vps diskspace)
 - Patched the usage of the Disk Inodes&Usage to display on HyperVM
-- Rebuild improved ( Still work in progress )
+- Rebuild improved
 
 TODO:
 - Solve Burstable RAM settings (dont get saved)
