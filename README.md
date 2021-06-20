@@ -11,9 +11,9 @@ DONE:
 - Make is workable ( creating vps, deleting vps, set the vps diskspace)
 - Patched the usage of the Disk Inodes&Usage to display on HyperVM
 - Rebuild improved
+- Solve Burstable RAM settings (dropped out on OpenVZ 7).
 
 TODO:
-- Solve Burstable RAM settings (dont get saved)
 - Downloading templates ( will add some on installation, for now use: https://download.openvz.org/template/precreated/
 - Network Count (Need to fix bug that flushes iptables once record is done, network only work like old ways and tc rules)
 - Create VNC option and others for VPS
