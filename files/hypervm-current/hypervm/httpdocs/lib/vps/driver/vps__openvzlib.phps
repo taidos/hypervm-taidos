@@ -874,6 +874,7 @@ class vps__openvz extends Lxdriverclass {
                 $rest = substr($diskusage, 0, -3);
 
                 lxshell_return("/usr/bin/prlctl", "set", $this->main->vpsid, "--device-set", "'hdd0'", "--size", $rest);
+#				lxshell_return("/usr/bin/prlctl", "set", $this->main->vpsid, "--vnc-mode", "manual" , "--vnc-port" , $this->main->vpsid , "--vnc-passwd" , $this->main->rootpassword);
 #               lxshell_return("/usr/sbin/vzctl", "set", $this->main->vpsid, "--save", "--diskspace", $diskusage, "--diskinodes", round($diskusage/2));
         }
 
@@ -1076,25 +1077,25 @@ public static function staticChangeConf($file, $var, $val)
 #			lxfile_mv_rec("{$this->main->coreploopdir}/{$this->main->vpsid}", $dir);
 #			lxfile_rm_rec($dir);
                         lxshell_return("/usr/sbin/vzctl", "set", $this->main->vpsid, "--ostemplate", $this->main->ostemplate , "--save");
-#                       lxshell_return("/usr/sbin/vzctl", "stop", $this->main->vpsid);
+#                        lxshell_return("/usr/sbin/vzctl", "stop", $this->main->vpsid);
                         lxshell_return("/usr/sbin/vzctl", "reinstall", $this->main->vpsid , "--skipbackup");
 
 		}
 #		lxfile_mkdir("{$this->main->corerootdir}/{$this->main->vpsid}");
 #new code for ploop
-               lxfile_mkdir("{$this->main->coreploopdir}/{$this->main->vpsid}");
-               lxfile_mkdir("/home/{$this->main->vpsid}");
-			   lxshell_return("rm", "-rf", "{$this->main->coreploopdir}/{$this->main->vpsid}/*");
-			   lxshell_return("mount", "-t", "ploop", "{$this->main->corerootdir}/{$this->main->vpsid}/root.hdd/DiskDescriptor.xml", "/home/{$this->main->vpsid}"); 
- 			   lxshell_return("rm", "-rf", "/home/{$this->main->vpsid}/*");
+#               lxfile_mkdir("{$this->main->coreploopdir}/{$this->main->vpsid}");
+#               lxfile_mkdir("/home/{$this->main->vpsid}");
+#			   lxshell_return("rm", "-rf", "{$this->main->coreploopdir}/{$this->main->vpsid}/*");
+#			   lxshell_return("mount", "-t", "ploop", "{$this->main->corerootdir}/{$this->main->vpsid}/root.hdd/DiskDescriptor.xml", "/home/{$this->main->vpsid}"); 
+# 			   lxshell_return("rm", "-rf", "/home/{$this->main->vpsid}/*");
 #end of the first part
 #               lxfile_mv("{$this->main->corerootdir}/{$this->main->vpsid}", "{$this->main->corerootdir}/{$this->main->vpsid}.back");
 #		$ret = lxshell_return("tar", "-C", "{$this->main->corerootdir}/{$this->main->vpsid}", '--numeric-owner', "-xzpf", $templatefile);
 #               $ret = lxshell_return("tar", "-C", "{$this->main->coreploopdir}/{$this->main->vpsid}", '--numeric-owner', "-xzpf", $templatefile);
 #start the second stage
-				$ret = lxshell_return("tar", "-C", "/home/{$this->main->vpsid}", '--numeric-owner', "-xzpf", $templatefile);
-				lxshell_return("umount", "/home/{$this->main->vpsid}");
-				lxshell_return("rm", "-rf", "/home/{$this->main->vpsid}");
+#				$ret = lxshell_return("tar", "-C", "/home/{$this->main->vpsid}", '--numeric-owner', "-xzpf", $templatefile);
+#				lxshell_return("umount", "/home/{$this->main->vpsid}");
+#				lxshell_return("rm", "-rf", "/home/{$this->main->vpsid}");
 #end of the rebuild
 #		lxfile_mv("{$this->main->corerootdir}/{$this->main->vpsid}.back", "{$this->main->corerootdir}/{$this->main->vpsid}");
 		if ($ret) {
