@@ -1072,9 +1072,13 @@ public static function staticChangeConf($file, $var, $val)
 			$dir = "/home/hypervm/vps/{$this->main->nname}/__backup/rebuild-backup.$date";
 			lxfile_mv_rec("{$this->main->coreploopdir}/{$this->main->vpsid}", $dir);
 		} else {
-			$dir = getNotexistingFile($this->main->coreploopdir, "tmp.{$this->main->vpsid}");
-			lxfile_mv_rec("{$this->main->coreploopdir}/{$this->main->vpsid}", $dir);
-			lxfile_rm_rec($dir);
+#			$dir = getNotexistingFile($this->main->coreploopdir, "tmp.{$this->main->vpsid}");
+#			lxfile_mv_rec("{$this->main->coreploopdir}/{$this->main->vpsid}", $dir);
+#			lxfile_rm_rec($dir);
+                        lxshell_return("/usr/sbin/vzctl", "set", $this->main->vpsid, "--ostemplate", $this->main->ostemplate , "--save");
+#                       lxshell_return("/usr/sbin/vzctl", "stop", $this->main->vpsid);
+                        lxshell_return("/usr/sbin/vzctl", "reinstall", $this->main->vpsid);
+
 		}
 #		lxfile_mkdir("{$this->main->corerootdir}/{$this->main->vpsid}");
 #new code for ploop
