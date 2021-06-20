@@ -1077,7 +1077,7 @@ public static function staticChangeConf($file, $var, $val)
 #			lxfile_rm_rec($dir);
                         lxshell_return("/usr/sbin/vzctl", "set", $this->main->vpsid, "--ostemplate", $this->main->ostemplate , "--save");
 #                       lxshell_return("/usr/sbin/vzctl", "stop", $this->main->vpsid);
-                        lxshell_return("/usr/sbin/vzctl", "reinstall", $this->main->vpsid "--skipbackup");
+                        lxshell_return("/usr/sbin/vzctl", "reinstall", $this->main->vpsid , "--skipbackup");
 
 		}
 #		lxfile_mkdir("{$this->main->corerootdir}/{$this->main->vpsid}");
