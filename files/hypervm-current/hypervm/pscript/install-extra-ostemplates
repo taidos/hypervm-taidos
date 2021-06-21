@@ -6,7 +6,8 @@
 startopenvz() {
 mkdir -p /vz/template/cache
 cd /vz/template/cache/
-wget -nd -np -c -r http://download.hypervm-ng.org/download/openvztemplates/extra/
+wget https://download.openvz.org/template/precreated/ubuntu-16.04-x86_64.tar.gz
+wget https://download.openvz.org/template/precreated/contrib/debian-9.0-x86_64-minimal.tar.gz
 }
 #
 startxen() {
