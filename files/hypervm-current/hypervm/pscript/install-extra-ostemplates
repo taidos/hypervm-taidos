@@ -8,6 +8,14 @@ mkdir -p /vz/template/cache
 cd /vz/template/cache/
 wget https://download.openvz.org/template/precreated/ubuntu-16.04-x86_64.tar.gz
 wget https://download.openvz.org/template/precreated/contrib/debian-9.0-x86_64-minimal.tar.gz
+cd ~/
+yum -y install p7zip.x86_64
+git clone https://github.com/taidos/almalinux-deploy.git
+rpm -Uvh ~/image-deploy/almalinux-8-x86_64-ez-1.0.0-1BX01.vl7.noarch.rpm
+cd ~/almalinux-deploy/image-deploy/
+7za -y x "almalinux-8-x86_64.tar.7z.*"
+mv almalinux-8-x86_64.tar.gz /vz/template/cache
+rf -rf ~/almalinux-deploy
 }
 #
 startxen() {
