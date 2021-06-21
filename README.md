@@ -12,9 +12,10 @@ DONE:
 - Patched the usage of the Disk Inodes&Usage to display on HyperVM
 - Rebuild improved
 - Solve Burstable RAM settings (dropped out on OpenVZ 7).
+- Downloading templates (added on /script/install-extra-templates) - even almalinux 8 i made, tested and working
 
 TODO:
-- Downloading templates ( will add some on installation, for now use: https://download.openvz.org/template/precreated/
+- Backup function when vps is down ( just when is online is making it )
 - Network Count (Need to fix bug that flushes iptables once record is done, network only work like old ways and tc rules)
 - Create VNC option and others for VPS
 
