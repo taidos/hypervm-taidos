@@ -17,7 +17,7 @@ DONE:
 
 TODO:
 - Backup function when vps is down ( just when is online is making it )
-- Network Count (Need to fix bug that flushes iptables once record is done, network only work like old ways and tc rules)
+- Network Count (patch can be found on dev branch, network works like old ways and tc rules)
 - Create VNC option and others for VPS
 
 Every update i made on this repository will refrect the new installations (not older ones) to be more fast on repair/update all the installation will use git to get all the needed files and then move, instead of getting the zip files, this way i believe is better. and i hope all the help you may give to put once again working as we expect!
