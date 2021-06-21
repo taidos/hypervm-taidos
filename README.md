@@ -12,7 +12,7 @@ DONE:
 - Patched the usage of the Disk Inodes&Usage to display on HyperVM
 - Rebuild improved
 - Solve Burstable RAM settings (dropped out on OpenVZ 7).
-- Downloading templates (added on /script/install-extra-templates) - even almalinux 8 i made, tested and working
+- Downloading templates (added on /script/install-extra-ostemplates) - even almalinux 8 i made, tested and working
 
 TODO:
 - Backup function when vps is down ( just when is online is making it )
