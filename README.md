@@ -5,4 +5,4 @@ This is files under development to test and maybe apply to main branch, they are
 
 Tools near to implement on main stream soon:
 
--rrd.sh (as a patch -developing-)
+-rrd.sh (-download it and add to the cron as: */5 * * * * sh /root/rrd.sh; sleep 2; iptables -Z > /dev/null-)
