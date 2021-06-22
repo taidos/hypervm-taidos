@@ -22,11 +22,14 @@ do
                         RRA:AVERAGE:0.5:288:797
         fi
         # Parse out the inbound/outbound traffic and assign them to the corresponding variables
+        #eval `/usr/sbin/vzctl exec $veid "grep venet0 /proc/net/dev"  |  \
+        #        awk -F: '{print $2}' | awk '{printf"CTIN=%s\nCTOUT=%s\n", $1, $9}'`
+        #iptables -nxv -L FORWARD | grep $(vzlist -H -o ctid,ip | grep $veid | awk '{ print $2}')| awk '{printf"CTIN=%s\nCTOUT=%s\n", $2, $2}' | sed '2d' | sed '2d'
 CTIN=$(iptables -nxv -L FORWARD | grep $(vzlist -H -o ctid,ip | grep $veid | awk '{ print $2}') | awk '{print $2}' | grep -m1 "")
 CTOUT=$(iptables -nxv -L FORWARD | grep $(vzlist -H -o ctid,ip | grep $veid | awk '{ print $2}') | awk '{print $2}' |tail -n1)
 
         # Send the data to the corresponding RRD time with (N)now as the update time
         /usr/bin/rrdtool update $RRDFILE N:$(( $CTIN + $CTOUT )):$CTIN:$CTOUT;
-       iptables -Z
+
 
 done
