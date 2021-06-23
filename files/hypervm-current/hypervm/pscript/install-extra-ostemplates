@@ -15,7 +15,7 @@ rpm -Uvh ~/image-deploy/almalinux-8-x86_64-ez-1.0.0-1BX01.vl7.noarch.rpm
 cd ~/almalinux-deploy/image-deploy/
 7za -y x "almalinux-8-x86_64.tar.7z.*"
 mv almalinux-8-x86_64.tar.gz /vz/template/cache
-rf -rf ~/almalinux-deploy
+rm -rf ~/almalinux-deploy
 }
 #
 startxen() {
