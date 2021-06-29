@@ -1186,9 +1186,10 @@ public static function staticChangeConf($file, $var, $val)
 		$templatename = "$name{$this->main->newostemplate_name_f}";
 	
 		$this->stop();
-	
+//	        lxshell_return("vzctl", "mount", {$this->main->vpsid});
 		$list = lscandir_without_dot("{$this->main->coreploopdir}/{$this->main->vpsid}");
 		lxshell_return("tar", "-C", "{$this->main->coreploopdir}/{$this->main->vpsid}/", '--numeric-owner', "-czf", "/vz/template/cache/$templatename.tar.gz", $list);
+//		lxshell_return("vzctl", "umount", {$this->main->vpsid});
 		$this->start();
 		$filepass = cp_fileserv("/vz/template/cache/$templatename.tar.gz");
 		$ret = array("__syncv___ostemplate_filepass" => $filepass, "__syncv___ostemplate_filename" => "$templatename.tar.gz");
