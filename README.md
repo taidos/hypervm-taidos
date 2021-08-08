@@ -1,6 +1,10 @@
 # hypervm-taidos
 My HyperVM Fork
 
+### Buy me a coffee
+[![](https://img.buymeacoffee.com/api/?url=aHR0cHM6Ly9pbWcuYnV5bWVhY29mZmVlLmNvbS9hcGkvP25hbWU9YWRuYW50dXJraSZzaXplPTMwMCZiZy1pbWFnZT1ibWMmYmFja2dyb3VuZD1mZjgxM2Y=&creator=taidos&is_creating=building%20cool%20things%20every%20single%20f**king%20day.&design_code=1&design_color=%23ff813f&slug=taidos)](https://www.buymeacoffee.com/taidos)
+
+
 HyperVM for new OpenVZ 7/Virtuozzo 7 Install, still need many improvements! But for now this is one alpha but stable, all modifications will be uploaded to the dev branch now and will be on the main branch after several test's and check's.
 
 DONE:
