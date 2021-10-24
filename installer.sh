@@ -13,7 +13,7 @@ echo -e "First Step - Install needed packages" >> $LOG
 echo -e "---------------------" >> $LOG
 yum -y install which wget zip unzip git epel-release php>> $LOG
 cd ~/
-git clone https://github.com/taidos/hypervm-taidos >> $LOG;
+git clone https://github.com/taidos/hypervm-taidos -b alpha --single-branch >> $LOG;
 cp -R ~/hypervm-taidos/files/patch/vzquota /usr/bin/vzquota >> $LOG;
 chmod 777 /usr/bin/vzquota >> $LOG;
 rpm -Uvh ~/hypervm-taidos/files/rpm/libdb4-4.8.30-13.el7.x86_64.rpm >> $LOG;
