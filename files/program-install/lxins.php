@@ -112,7 +112,8 @@ function lxins_main()
         if (char_search_beg($osversion, "centos-7") || char_search_beg($osversion, "rhel-7") || char_search_beg($osversion, "virtuozzo-7")) {
             $mysql = array("mariadb", "mariadb-server");
         } else {
-            $mysql = array("mysql", "mysql-server");
+//            $mysql = array("mysql", "mysql-server");
+            $mysql = array("mariadb", "mariadb-server");
         }
         $list = array_merge($list, $mysql);
     }
