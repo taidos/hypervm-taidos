@@ -26,6 +26,8 @@ function virt_install_main()
 		openvz_install($installtype);
 	} else if ($virtualization === 'xen') {
 		xen_install($installtype);
+	} else if ($virtualization === 'LXC') {
+		lxc_install($installtype);
 	}
 
 	if ($installtype !== 'slave' && !$skipostemplate) {
@@ -59,6 +61,26 @@ function openvz_install($installtype)
 
 	if (is_centossix()) {
 		lxfile_cp("../file/sysfile/openvz/centos-6-openvz-ve-vswap-hypervm.conf-sample", "/etc/vz/conf/ve-vswap-hypervm.conf-sample");
+	}
+
+}
+
+function lxc_install($installtype)
+{
+	$arch = `arch`;
+	$arch = trim($arch);
+
+	if ($arch === 'x86_64') {
+		$list = array("lxc.x86_64", "lxc-devel.x86_64", "lxc-templates.x86_64", "lxcfs.x86_64");
+		//$list = array("vzctl.x86_64", "vzquota.x86_64", "vzkernel.x86_64", "kernel.x86_64");
+	} else {
+		$list = array("vzctl", "vzquota", "ovzkernel-PAE");
+	}
+
+	run_package_installer($list);
+
+	if (is_centossix()) {
+		lxfile_cp("../file/sysfile/openvz/centos-6-openvz-ve-vswap-hypervm.conf-sample", "../file/sysfile/openvz/centos-6-openvz-ve-vswap-hypervm.conf");
 	}
 
 }
