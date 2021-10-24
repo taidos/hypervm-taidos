@@ -38,7 +38,7 @@ function lxins_main()
     }
 
     if (!isset($opt['virtualization-type'])) {
-        print("Need virtualization type --virtualization-type=xen/openvz/NONE\n");
+        print("Need virtualization type --virtualization-type=xen/openvz/LXC/NONE\n");
         exit;
     } else {
         $virtualization = $opt['virtualization-type'];
@@ -49,8 +49,8 @@ function lxins_main()
         $skipostemplate = true;
     }
 
-    if (array_search($virtualization, array("xen", "openvz", "NONE")) === false) {
-        print("Only xen/openvz/NONE are curently supported\n");
+    if (array_search($virtualization, array("xen", "openvz", "NONE", "LXC")) === false) {
+        print("Only xen/openvz/LXC/NONE are curently supported\n");
         exit;
     }
 
