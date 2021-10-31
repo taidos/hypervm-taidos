@@ -29,7 +29,11 @@ echo -e "---------------------"
 echo -e "Second Stage - Install HyperVM" >> $LOG
 echo -e "---------------------" >> $LOG
 cd ~/hypervm-taidos/files/program-install/
-php lxins.php  --install-type=master $* | tee $LOG
+php lxins.php  --install-type=master $* | tee $LOG;
+mkdir -p /usr/local/lxlabs/ext/lxlighttpd/sbin/;
+ln -s /usr/sbin/lighttpd /usr/local/lxlabs/ext/lxlighttpd/sbin/hypervm.httpd;
+cp -R /root/hypervm-taidos/files/hypervm-current/hypervm/httpdocs/htmllib/filecore/program.ca /usr/local/lxlabs/hypervm/etc/program.ca
+cp -R /root/hypervm-taidos/files/hypervm-current/hypervm/httpdocs/htmllib/filecore/program.ca /usr/local/lxlabs/hypervm/etc/program.ca
 echo -e "I still need to make it more clean but is working"
 
 
