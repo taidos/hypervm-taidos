@@ -146,7 +146,7 @@ function lxins_main()
 //  why is that?
 //      exec("killall wget");
 
-    system("mkdir -p /usr/local/lxlabs/hypervm");
+    system("ln -s /usr/lib/systemd/system/mariadb.service /usr/lib/systemd/system/mysqld.service; mkdir -p /usr/local/lxlabs/hypervm");
     chdir("/usr/local/lxlabs/hypervm");
     system("mkdir -p /usr/local/lxlabs/hypervm/log");
 
