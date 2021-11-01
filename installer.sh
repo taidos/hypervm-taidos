@@ -11,7 +11,7 @@ echo -e "---------------------"
 echo -e "First Step - Install needed packages"
 echo -e "First Step - Install needed packages" >> $LOG
 echo -e "---------------------" >> $LOG
-yum -y install which wget zip unzip git epel-release php >> $LOG
+yum -y install which wget zip unzip git epel-release >> $LOG
 yum -y install http://rpms.remirepo.net/enterprise/remi-release-8.rpm  >> $LOG
 #yum -y update >> $LOG
 yum -y install libmcrypt.x86_64 libmcrypt-devel.x86_64 libc-client.x86_64 lighttpd-fastcgi.x86_64 lighttpd.x86_64 php56 php56-php-mysql >> $LOG
