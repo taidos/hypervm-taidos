@@ -200,7 +200,7 @@ function lxins_main()
 //
 // call script to install base OS templates and OpenVZ repo
 //
-    passthru("/usr/local/lxlabs/ext/php/php ../bin/install/virt-install.php --install-type=$installtype --virtualization-type=$virtualization $skiparg");
+    passthru("php56 ../bin/install/virt-install.php --install-type=$installtype --virtualization-type=$virtualization $skiparg");
 
 
     echo smart_wordwrap("\n\n\nCongratulations!.\nHyperVM has been installed successfully on your server as $installtype \n");
