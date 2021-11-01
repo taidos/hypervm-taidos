@@ -98,7 +98,7 @@ function lxins_main()
 //  $list = array("which", "lxlighttpd", "zip", "unzip", "hypervm-core-php", "curl", "yum-plugin-replace");
 //  $list = array("which", "zip", "unzip", "curl", "yum-plugin-replace" , "hypervm-core-php" , "hypervm-core-lighttpd");
     $list = array("which", "zip", "unzip", "curl");
-//    exec("mkdir -p /usr/local/lxlabs/ext/php/; ln -s /usr/bin/php56 /usr/local/lxlabs/ext/php/php");
+//    exec("echo 'done'");
     
     /* Because our builder is on CentOS-6 the binaries like closeallinput are linked against libssl.so.10
      * To keep backward compatibility with RHEL-5 / CentOS-5 systems HyperVM-NG provides openssl10 package
@@ -146,7 +146,7 @@ function lxins_main()
 //  why is that?
 //      exec("killall wget");
 
-    system("ln -s /usr/lib/systemd/system/mariadb.service /usr/lib/systemd/system/mysqld.service; mkdir -p /usr/local/lxlabs/hypervm");
+    system("mkdir -p /usr/local/lxlabs/hypervm");
     chdir("/usr/local/lxlabs/hypervm");
     system("mkdir -p /usr/local/lxlabs/hypervm/log");
 
@@ -180,7 +180,7 @@ function lxins_main()
     chdir("/usr/local/lxlabs/hypervm/httpdocs/");
     system("/usr/bin/mkdir -p /usr/local/lxlabs/ext/php/etc/");
     system("/bin/cp /usr/local/lxlabs/hypervm/httpdocs/htmllib/filecore/php.ini /usr/local/lxlabs/ext/php/etc/php.ini");
-    system("php56 ../bin/install/create.php --install-type=$installtype --db-rootuser=$dbroot --db-rootpassword=$dbpass");
+    system("php ../bin/install/create.php --install-type=$installtype --db-rootuser=$dbroot --db-rootpassword=$dbpass");
 
     system("chmod 755 /etc/init.d/hypervm");
     system("/sbin/chkconfig hypervm on");
@@ -200,7 +200,7 @@ function lxins_main()
 //
 // call script to install base OS templates and OpenVZ repo
 //
-    passthru("php56 ../bin/install/virt-install.php --install-type=$installtype --virtualization-type=$virtualization $skiparg");
+    passthru("php ../bin/install/virt-install.php --install-type=$installtype --virtualization-type=$virtualization $skiparg");
 
 
     echo smart_wordwrap("\n\n\nCongratulations!.\nHyperVM has been installed successfully on your server as $installtype \n");
