@@ -12,9 +12,10 @@ echo -e "First Step - Install needed packages"
 echo -e "First Step - Install needed packages" >> $LOG
 echo -e "---------------------" >> $LOG
 yum -y install which wget zip unzip git epel-release php >> $LOG
-yum -y install http://rpms.remirepo.net/enterprise/remi-release-8.rpm  >> $LOG
+#yum -y install http://rpms.remirepo.net/enterprise/remi-release-8.rpm  >> $LOG
 yum -y update >> $LOG
-yum -y install libmcrypt.x86_64 libmcrypt-devel.x86_64 libc-client.x86_64 lighttpd-fastcgi.x86_64 lighttpd.x86_64 php56 php56-php-mysql >> $LOG
+#yum -y install libmcrypt.x86_64 libmcrypt-devel.x86_64 libc-client.x86_64 lighttpd-fastcgi.x86_64 lighttpd.x86_64 php56 php56-php-mysql >> $LOG
+yum -y install lighttpd-fastcgi.x86_64 lighttpd.x86_64;
 cd ~/
 git clone https://github.com/taidos/hypervm-taidos -b alpha --single-branch >> $LOG;
 cp -R ~/hypervm-taidos/files/patch/vzquota /usr/bin/vzquota >> $LOG;
@@ -30,7 +31,7 @@ echo -e "Second Stage - Install HyperVM" >> $LOG
 echo -e "---------------------" >> $LOG
 cd ~/hypervm-taidos/files/program-install/
 ln -s /usr/lib/systemd/system/mariadb.service /usr/lib/systemd/system/mysqld.service;
-php lxins.php  --install-type=master $* | tee $LOG;
+/usr/local/lxlabs/ext/php/bin/php/php lxins.php  --install-type=master $* | tee $LOG;
 mkdir -p /usr/local/lxlabs/ext/lxlighttpd/sbin/;
 ln -s /usr/sbin/lighttpd /usr/local/lxlabs/ext/lxlighttpd/sbin/hypervm.httpd;
 cp -R /root/hypervm-taidos/files/hypervm-current/hypervm/httpdocs/htmllib/filecore/program.pem /usr/local/lxlabs/hypervm/etc/program.pem;
