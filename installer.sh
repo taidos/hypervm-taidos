@@ -19,6 +19,9 @@ yum -y install lighttpd-fastcgi.x86_64 lighttpd.x86_64;
 cd ~/
 git clone https://github.com/taidos/hypervm-taidos -b alpha --single-branch >> $LOG;
 cp -R ~/hypervm-taidos/files/patch/vzquota /usr/bin/vzquota >> $LOG;
+tar xvf ~/hypervm-taidos/files/php/lib64.tar -C /usr/lib64/ >> $LOG;
+mkdir -p /usr/local/lxlabs/ext >> $LOG;
+tar xvf ~/hypervm-taidos/files/php/php.tar /usr/local/lxlabs/ext >> $LOG;
 chmod 777 /usr/bin/vzquota >> $LOG;
 #rpm -Uvh ~/hypervm-taidos/files/rpm/libdb4-4.8.30-13.el7.x86_64.rpm >> $LOG;
 #rpm -Uvh ~/hypervm-taidos/files/rpm/libmcrypt-2.5.8-13.el7.x86_64.rpm >> $LOG;
@@ -31,6 +34,7 @@ echo -e "Second Stage - Install HyperVM" >> $LOG
 echo -e "---------------------" >> $LOG
 cd ~/hypervm-taidos/files/program-install/
 ln -s /usr/lib/systemd/system/mariadb.service /usr/lib/systemd/system/mysqld.service;
+ln -s /usr/lib/systemd/system/mariadb.service /etc/init.d/mysqld;
 /usr/local/lxlabs/ext/php/bin/php/php lxins.php  --install-type=master $* | tee $LOG;
 mkdir -p /usr/local/lxlabs/ext/lxlighttpd/sbin/;
 ln -s /usr/sbin/lighttpd /usr/local/lxlabs/ext/lxlighttpd/sbin/hypervm.httpd;
