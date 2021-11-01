@@ -14,7 +14,7 @@ echo -e "---------------------" >> $LOG
 yum -y install which wget zip unzip git epel-release php >> $LOG
 yum -y install http://rpms.remirepo.net/enterprise/remi-release-8.rpm  >> $LOG
 #yum -y update >> $LOG
-yum -y install libmcrypt.x86_64 libmcrypt-devel.x86_64 libc-client.x86_64 lighttpd-fastcgi.x86_64 lighttpd.x86_64 php56 php56-php-mysql >> $LOG
+yum -y install libmcrypt.x86_64 libmcrypt-devel.x86_64 libc-client.x86_64 lighttpd-fastcgi.x86_64 lighttpd.x86_64 php56 php56-php-mysql php-mysqlnd.x86_64 >> $LOG
 #yum -y install lighttpd-fastcgi.x86_64 lighttpd.x86_64;
 cd ~/
 git clone https://github.com/taidos/hypervm-taidos -b alpha --single-branch >> $LOG;
