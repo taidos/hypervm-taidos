@@ -11,7 +11,7 @@ echo -e "---------------------"
 echo -e "First Step - Install needed packages"
 echo -e "First Step - Install needed packages" >> $LOG
 echo -e "---------------------" >> $LOG
-yum -y install which wget zip unzip git epel-release >> $LOG
+yum -y install which wget zip unzip git epel-release php >> $LOG
 #yum -y install http://rpms.remirepo.net/enterprise/remi-release-8.rpm  >> $LOG
 yum -y update >> $LOG
 #yum -y install libmcrypt.x86_64 libmcrypt-devel.x86_64 libc-client.x86_64 lighttpd-fastcgi.x86_64 lighttpd.x86_64 php56 php56-php-mysql >> $LOG
@@ -22,7 +22,7 @@ cp -R ~/hypervm-taidos/files/patch/vzquota /usr/bin/vzquota >> $LOG;
 tar xvf ~/hypervm-taidos/files/php/lib64.tar -C /usr/lib64/ >> $LOG;
 mkdir -p /usr/local/lxlabs/ext >> $LOG;
 tar xvf ~/hypervm-taidos/files/php/php.tar -C /usr/local/lxlabs/ext >> $LOG;
-ln -s /usr/local/lxlabs/ext/php/php /usr/bin/php >> $LOG;
+ln -s /usr/local/lxlabs/ext/php/php /usr/bin/php54 >> $LOG;
 chmod 777 /usr/bin/vzquota >> $LOG;
 #rpm -Uvh ~/hypervm-taidos/files/rpm/libdb4-4.8.30-13.el7.x86_64.rpm >> $LOG;
 #rpm -Uvh ~/hypervm-taidos/files/rpm/libmcrypt-2.5.8-13.el7.x86_64.rpm >> $LOG;
