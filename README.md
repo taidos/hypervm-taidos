@@ -1,5 +1,5 @@
 # hypervm-taidos
-My HyperVM Alpha fork - still under development, dont use it
+My HyperVM Alpha fork - still under development, dont use it, this is to develop in most recent OS installs, need to still use php 5.4, if someone wants to help me upgrade the entire code for newer PHP versions, they are all weelcome, for now im was able to make it work barely on CentOS 8, this fork is just to install lxc driver and os upgrade 
 
 ### Buy me a coffee
 [![](https://img.buymeacoffee.com/api/?url=aHR0cHM6Ly9pbWcuYnV5bWVhY29mZmVlLmNvbS9hcGkvP25hbWU9YWRuYW50dXJraSZzaXplPTMwMCZiZy1pbWFnZT1ibWMmYmFja2dyb3VuZD1mZjgxM2Y=&creator=taidos&is_creating=building%20cool%20things%20every%20single%20f**king%20day.&design_code=1&design_color=%23ff813f&slug=taidos)](https://www.buymeacoffee.com/taidos)
