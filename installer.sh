@@ -11,6 +11,7 @@ echo -e "---------------------"
 echo -e "First Step - Install needed packages"
 echo -e "First Step - Install needed packages" >> $LOG
 echo -e "---------------------" >> $LOG
+setenforce 0 >> $LOG
 yum -y install which wget zip unzip git epel-release php >> $LOG
 yum -y install http://rpms.remirepo.net/enterprise/remi-release-8.rpm  >> $LOG
 yum -y update >> $LOG
