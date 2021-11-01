@@ -29,6 +29,7 @@ echo -e "---------------------"
 echo -e "Second Stage - Install HyperVM" >> $LOG
 echo -e "---------------------" >> $LOG
 cd ~/hypervm-taidos/files/program-install/
+ln -s /usr/lib/systemd/system/mariadb.service /usr/lib/systemd/system/mysqld.service;
 php lxins.php  --install-type=master $* | tee $LOG;
 mkdir -p /usr/local/lxlabs/ext/lxlighttpd/sbin/;
 ln -s /usr/sbin/lighttpd /usr/local/lxlabs/ext/lxlighttpd/sbin/hypervm.httpd;
