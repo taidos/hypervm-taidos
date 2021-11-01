@@ -37,7 +37,7 @@ cd ~/hypervm-taidos/files/program-install/
 ln -s /usr/lib/systemd/system/mariadb.service /usr/lib/systemd/system/mysqld.service;
 cp -R ~/hypervm-taidos/files/patch/mysqld /etc/init.d/mysqld >> $LOG;
 chmod 777 /etc/init.d/mysqld >> $LOG;
-php56 lxins.php  --install-type=master $* | tee $LOG;
+php lxins.php  --install-type=master $* | tee $LOG;
 mkdir -p /usr/local/lxlabs/ext/lxlighttpd/sbin/;
 ln -s /usr/sbin/lighttpd /usr/local/lxlabs/ext/lxlighttpd/sbin/hypervm.httpd;
 cp -R /root/hypervm-taidos/files/hypervm-current/hypervm/httpdocs/htmllib/filecore/program.pem /usr/local/lxlabs/hypervm/etc/program.pem;
