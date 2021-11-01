@@ -180,7 +180,7 @@ function lxins_main()
     chdir("/usr/local/lxlabs/hypervm/httpdocs/");
     system("/usr/bin/mkdir -p /usr/local/lxlabs/ext/php/etc/");
     system("/bin/cp /usr/local/lxlabs/hypervm/httpdocs/htmllib/filecore/php.ini /usr/local/lxlabs/ext/php/etc/php.ini");
-    system("php ../bin/install/create.php --install-type=$installtype --db-rootuser=$dbroot --db-rootpassword=$dbpass");
+    system("php56 ../bin/install/create.php --install-type=$installtype --db-rootuser=$dbroot --db-rootpassword=$dbpass");
 
     system("chmod 755 /etc/init.d/hypervm");
     system("/sbin/chkconfig hypervm on");
@@ -200,7 +200,7 @@ function lxins_main()
 //
 // call script to install base OS templates and OpenVZ repo
 //
-    passthru("php ../bin/install/virt-install.php --install-type=$installtype --virtualization-type=$virtualization $skiparg");
+    passthru("php56 ../bin/install/virt-install.php --install-type=$installtype --virtualization-type=$virtualization $skiparg");
 
 
     echo smart_wordwrap("\n\n\nCongratulations!.\nHyperVM has been installed successfully on your server as $installtype \n");
