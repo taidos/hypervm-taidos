@@ -1,5 +1,4 @@
-# hypervm-taidos
-My HyperVM Fork
+# My HyperVM Fork
 
 ### Buy me a coffee
 [![](https://img.buymeacoffee.com/api/?url=aHR0cHM6Ly9pbWcuYnV5bWVhY29mZmVlLmNvbS9hcGkvP25hbWU9YWRuYW50dXJraSZzaXplPTMwMCZiZy1pbWFnZT1ibWMmYmFja2dyb3VuZD1mZjgxM2Y=&creator=taidos&is_creating=building%20cool%20things%20every%20single%20f**king%20day.&design_code=1&design_color=%23ff813f&slug=taidos)](https://www.buymeacoffee.com/taidos)
@@ -7,7 +6,7 @@ My HyperVM Fork
 
 HyperVM for new OpenVZ 7/Virtuozzo 7 Install, still need many improvements! But for now this is one alpha but stable, all modifications will be uploaded to the dev branch now and will be on the main branch after several test's and check's.
 
-DONE:
+# DONE:
 
 - HyperVM-NG Repo (error in installation due to be down) Solved
 - SimFS settings related to old OpenVZ versions Solved
@@ -19,7 +18,7 @@ DONE:
 - Disk inodes changes (dropped out on OpenVZ 7, if you need more inodes you need to upgrade the diskspace, you cant change inodes without it).
 - Downloading templates (added on /script/install-extra-ostemplates) - even almalinux 8 i made, tested and working
 
-TODO:
+# TODO:
 - Backup function when vps is down ( just when is online is making it )
 - Network Count (patch can be found on dev branch, network works like old ways and tc rules)
 - Create VNC option and others for VPS
@@ -34,4 +33,4 @@ For production right now i recomend one projects: https://www.proxmox.com/en/
 
 Those are with ISO image, not just the Panel ONLY ( thats oneonther reason i am doing this ) its near impossible to find one free panel solution this days.
 
-To contact me email me at taidos@sapo.pt or find me on discord: https://discord.gg/Y2ERCMHa8J
+To contact me email me at theislemen@outlook.pt or find me on discord: https://discord.gg/Y2ERCMHa8J
